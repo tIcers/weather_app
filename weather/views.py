@@ -2,5 +2,6 @@ from django.shortcuts import render
 
 # Create your views here.
 
-def weather_view(request):
+def index(request):
+
 	return render(request, 'weather/weather.html')
