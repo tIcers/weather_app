@@ -1,16 +1,36 @@
 <!DOCTYPE html>
-<html>
-  <body>
-<!-- Load icon library -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<!-- The form -->
+<head>
+  {% load static %}
 
-<h1>description for the weather is: {{description}}</h1>
-<p><img src="http://openweathermap.org/img/w/{{icon}}.png"/></p>
+<link rel="stylesheet" type="text/css" href="{% static 'weather/style.css' %}">
 
-<h1>The temprature is :{{temp}}</h1>
-<h1>Humidity:{{humid}}%</h1>
+</style>
+</head>
 
-</body>
+    <title>django weather</title>
+    
+  </head>
+    <body>
+      <div>
+        <form class="example" method='post'style="margin:auto;max-width:300px">
+          {% csrf_token %}
+            <input type="text" placeholder="Enter city.." name="city">
+            
+          
+        </form>
+      </div>        
+      <article class="widget">
+        <div class="weatherIcon"></div>
+        <div class="weatherData">
+          <h1 class="temperature">{{temp}}&deg;</h1>
+          <h2 class="description" >{{description}}</h2>
+          <h3 class="city">{{city}}</h3>
+        </div>
+        <div class="date">
+          <h4 class="month" id="month">{{month}}</h4>
+          <h5 class="day" id="day">{{day}}</h5>
+        </div>
+      </article>
+  </body>
 </html>
